@@ -1,0 +1,29 @@
+{% extends 'data.html' %}
+{% block judul %} Data Coffee Shop {% endblock %}
+{% block JudulKonten %}
+<div class="btn btn-info">Pesanan</div>
+{% endblock %}
+{% block konten %}
+    <table class="table table-bordered table-hover" align="center" border="1"
+    cellpadding="2" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Makanan</th>
+                <th>Minuman</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in hasil %}
+                <tr>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                    <td>{{ row.2 }}</td>
+                    <td>
+                        <a href="/hapus/{{row.0}}" class="btn btn-danger" onclick="return confirm('Yakin ingin cancel {{ row.0 }}?')">Cancel</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
